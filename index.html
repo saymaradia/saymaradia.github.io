@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayma Ahmed Radia — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F5F2FA;
+    --panel: #FFFFFF;
+    --ink: #2E2745;
+    --ink-soft: #3D3455;
+    --lavender-deep: #5B4E8A;
+    --lavender-mid: #8D7FC0;
+    --lavender-soft: #D8CEEF;
+    --line: #E1D9F2;
+    --serif: 'Fraunces', serif;
+    --sans: 'Work Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+
+  a { color: var(--lavender-deep); }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* HERO */
+  header.hero {
+    padding: 84px 0 64px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .headshot {
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: linear-gradient(160deg, var(--lavender-soft), var(--lavender-mid));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 44px;
+    color: var(--panel);
+    overflow: hidden;
+    border: 3px solid var(--panel);
+    box-shadow: 0 6px 24px rgba(91,78,138,0.25);
+  }
+
+  .headshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .hero-text h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 40px;
+    margin: 0 0 6px;
+    color: var(--lavender-deep);
+  }
+
+  .hero-text .role {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+
+  .hero-text .contact-line {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .hero-text .contact-line a { text-decoration: none; }
+  .hero-text .contact-line span.dot { margin: 0 8px; color: var(--lavender-mid); }
+
+  /* SECTIONS */
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  section h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--lavender-deep);
+    margin: 0 0 22px;
+  }
+
+  section p { color: var(--ink-soft); max-width: 68ch; }
+
+  /* EDUCATION TABLE */
+  table.edu {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(91,78,138,0.08);
+  }
+
+  table.edu th, table.edu td {
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 14.5px;
+  }
+
+  table.edu th {
+    background: var(--lavender-soft);
+    color: var(--lavender-deep);
+    font-weight: 600;
+    font-family: var(--sans);
+  }
+
+  table.edu tr:not(:last-child) td { border-bottom: 1px solid var(--line); }
+  table.edu td.result { color: var(--lavender-deep); font-weight: 500; }
+
+  /* INTERNSHIP */
+  .role-card {
+    background: var(--panel);
+    border-radius: 10px;
+    padding: 26px 28px;
+    box-shadow: 0 2px 12px rgba(91,78,138,0.08);
+  }
+
+  .role-card .role-title {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--ink);
+    margin: 0 0 2px;
+  }
+
+  .role-card .role-meta {
+    font-size: 13.5px;
+    color: var(--lavender-mid);
+    margin: 0 0 16px;
+  }
+
+  .role-card ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--ink-soft);
+  }
+
+  .role-card li { margin-bottom: 7px; font-size: 14.5px; }
+
+  /* SKILLS / LANGUAGES */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .chip {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-size: 13.5px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+
+  .lang-item span.level { color: var(--lavender-deep); font-weight: 500; }
+
+  /* REFERENCE */
+  .ref-card {
+    background: var(--panel);
+    border-radius: 10px;
+    padding: 22px 26px;
+    box-shadow: 0 2px 12px rgba(91,78,138,0.08);
+    font-size: 14.5px;
+  }
+
+  .ref-card .ref-name { font-family: var(--serif); font-size: 17px; color: var(--ink); margin: 0 0 2px; }
+  .ref-card .ref-role { color: var(--lavender-mid); margin: 0 0 10px; font-size: 13.5px; }
+  .ref-card div.ref-contact { color: var(--ink-soft); }
+
+  footer {
+    padding: 36px 0 60px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 620px) {
+    .hero-inner { flex-direction: column; text-align: center; gap: 20px; }
+    .two-col { grid-template-columns: 1fr; }
+    table.edu { font-size: 13px; }
+    table.edu th, table.edu td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="headshot" id="headshot">
+        <img src="Radia.jpg" alt="Sayma Ahmed Radia" id="headshot-img">
+        <span id="headshot-initials">SR</span>
+      </div>
+      <div class="hero-text">
+        <h1>Sayma Ahmed Radia</h1>
+        <p class="role">M.Ed. Candidate, Institute of Education and Research, University of Dhaka</p>
+        <p class="contact-line">
+          Dhaka, Bangladesh <span class="dot">&middot;</span>
+          <a href="mailto:saymaradia7@gmail.com">saymaradia7@gmail.com</a> <span class="dot">&middot;</span>
+          <a href="https://www.linkedin.com/in/sayma-ahmed-radia-555a7743a" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I'm an education student pursuing my M.Ed. at the Institute of Education and Research, University of Dhaka. My academic background is in Education, alongside practical experience teaching at the secondary level. I've built skills in lesson planning, instructional material development, assessment, and academic writing, and I'm interested in continuing to grow in education, social science, and research.</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <table class="edu">
+      <thead>
+        <tr>
+          <th>Degree</th>
+          <th>Institution</th>
+          <th>Year</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>M.Ed.</td>
+          <td>Institute of Education and Research, University of Dhaka</td>
+          <td>2026</td>
+          <td class="result">In Progress</td>
+        </tr>
+        <tr>
+          <td>B.Ed. (Hons.)</td>
+          <td>Institute of Education and Research, University of Dhaka</td>
+          <td>2025</td>
+          <td class="result">CGPA 3.50</td>
+        </tr>
+        <tr>
+          <td>HSC</td>
+          <td>Comilla Government College</td>
+          <td>2020</td>
+          <td class="result">GPA 5.00</td>
+        </tr>
+        <tr>
+          <td>SSC</td>
+          <td>Nawab Faizunnesa Government Girls' High School</td>
+          <td>2018</td>
+          <td class="result">GPA 5.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="experience">
+    <h2>Internship Experience</h2>
+    <div class="role-card">
+      <p class="role-title">Intern Teacher</p>
+      <p class="role-meta">Hazaribag Girls' High School and College &middot; November 2024 – February 2025</p>
+      <ul>
+        <li>Taught classes 6–10.</li>
+        <li>Prepared lesson plans and instructional materials for individual classes.</li>
+        <li>Conducted classroom and co-curricular activities.</li>
+        <li>Prepared question papers and evaluated answer scripts.</li>
+        <li>Conducted tests and assessments.</li>
+        <li>Performed examination invigilation duties.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="chip-row">
+      <span class="chip">Microsoft Office (Word, PowerPoint, Excel)</span>
+      <span class="chip">Google Workspace</span>
+      <span class="chip">Canva</span>
+      <span class="chip">Lesson Planning</span>
+      <span class="chip">Instructional Material Development</span>
+      <span class="chip">Report &amp; Academic Writing</span>
+      <span class="chip">Presentation Skills</span>
+    </div>
+  </section>
+
+  <section id="languages">
+    <h2>Languages</h2>
+    <div class="two-col">
+      <div>
+        <div class="lang-item"><span>Bangla</span><span class="level">Native</span></div>
+        <div class="lang-item"><span>English</span><span class="level">Working Proficiency</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="references">
+    <h2>Reference</h2>
+    <div class="ref-card">
+      <p class="ref-name">Prof. Dr. Khairul Islam</p>
+      <p class="ref-role">Professor, Institute of Education and Research (IER), University of Dhaka</p>
+      <div class="ref-contact">
+        khairulislam@du.ac.bd &middot; 01716-304044
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="ref-card">
+      <div class="ref-contact">
+        <a href="mailto:saymaradia7@gmail.com">saymaradia7@gmail.com</a> &middot;
+        <a href="https://www.linkedin.com/in/sayma-ahmed-radia-555a7743a" target="_blank" rel="noopener">linkedin.com/in/sayma-ahmed-radia</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Sayma Ahmed Radia
+  </footer>
+
+</div>
+
+<script>
+  // Show the real photo if Radia.jpg loads next to this file; otherwise keep the initials placeholder.
+  const img = document.getElementById('headshot-img');
+  const initials = document.getElementById('headshot-initials');
+  img.addEventListener('load', function () {
+    img.style.display = 'block';
+    initials.style.display = 'none';
+  });
+  img.addEventListener('error', function () {
+    img.style.display = 'none';
+    initials.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
